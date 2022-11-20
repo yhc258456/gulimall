@@ -1,4 +1,4 @@
-package com.rachel.gulimall.product;
+package com.rachel.gulimall.modules.product;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
