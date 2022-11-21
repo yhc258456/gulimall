@@ -33,6 +33,11 @@ public class BrandController {
     @Autowired
     private BrandService brandService;
 
+    @PostMapping("/list")
+    public String findlist(@RequestBody String body) {
+        return "666 you are success! ";
+    }
+
     @GetMapping("page")
     public Result<PageData<BrandDTO>> page(@ApiIgnore @RequestParam Map<String, Object> params){
         PageData<BrandDTO> page = brandService.page(params);
