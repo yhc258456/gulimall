@@ -19,6 +19,7 @@
         <module>renren-generator</module>
         <module>gulimall_common</module>
         <module>gulimall-member</module>
+        <module>gulimall-gateway</module>
     </modules>
 
 </project>
