@@ -1,6 +1,7 @@
 package com.rachel.gulimall.product.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,26 @@ import com.rachel.common.utils.R;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
+    /**
+     * 修改分类
+     */
+    @RequestMapping("/update/sort")
+    public R update(@RequestBody CategoryEntity[] category){
+
+        categoryService.updateBatchById(Arrays.asList(category));
+        return R.ok();
+    }
+
+    /**
+     * 列表
+     */
+    @RequestMapping("/list/tree")
+    public R listWithTree(@RequestParam Map<String, Object> params){
+        List<CategoryEntity> categoryEntityList = categoryService.listWithTree(params);
+
+        return R.ok().put("data", categoryEntityList);
+    }
+
 
     /**
      * 列表
@@ -48,7 +69,7 @@ public class CategoryController {
     public R info(@PathVariable("catId") Long catId){
 		CategoryEntity category = categoryService.getById(catId);
 
-        return R.ok().put("category", category);
+        return R.ok().put("data", category);
     }
 
     /**
@@ -76,8 +97,7 @@ public class CategoryController {
      */
     @RequestMapping("/delete")
     public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
-
+        categoryService.deleteMenus(Arrays.asList(catIds));
         return R.ok();
     }
 
