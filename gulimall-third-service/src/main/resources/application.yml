@@ -7,8 +7,8 @@ spring:
         server-addr: 127.0.0.1:8848
     # 阿里云oss服务配置
     alicloud:
-      access-key: LTAI5tD4KsVYDW6MTdkbYiiu
-      secret-key: 1IEnE732DHSAyUvtbJ60gvwC2X01hr
+      access-key: 阿里云id
+      secret-key: 阿里云密码
       oss:
         endpoint: oss-cn-chengdu.aliyuncs.com
         bucket: edu-online-yhc
