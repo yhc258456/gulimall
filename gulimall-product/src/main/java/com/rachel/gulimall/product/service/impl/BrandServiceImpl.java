@@ -25,6 +25,7 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
         if (name != null) {
             brandEntityQueryWrapper.like("name", name);
         }
+        brandEntityQueryWrapper.orderByAsc("sort");
         IPage<BrandEntity> page = this.page(new Query<BrandEntity>().getPage(params), brandEntityQueryWrapper);
 
         return new PageUtils(page);

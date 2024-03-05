@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: gulimall-third-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    # 阿里云oss服务配置
+    alicloud:
+      access-key: LTAI5tD4KsVYDW6MTdkbYiiu
+      secret-key: 1IEnE732DHSAyUvtbJ60gvwC2X01hr
+      oss:
+        endpoint: oss-cn-chengdu.aliyuncs.com
+        bucket: edu-online-yhc
+server:
+  port: 13000
+

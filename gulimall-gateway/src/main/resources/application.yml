@@ -23,6 +23,13 @@ spring:
          filters:
            - RewritePath=/api/(?<segment>.*),/$\{segment}
 
+       - id: third_service_route
+         uri: lb://gulimall-third-service
+         predicates:
+           - Path=/api/thirdservice/**
+         filters:
+           - RewritePath=/api/thirdservice(?<segment>.*),/$\{segment}
+
        - id: admin_route
          uri: lb://renren-fast
          predicates:
