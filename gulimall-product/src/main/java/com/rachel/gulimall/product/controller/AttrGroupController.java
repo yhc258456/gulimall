@@ -44,16 +44,6 @@ public class AttrGroupController {
         return R.ok().put("page", page);
     }
 
-    /**
-     * 列表
-     */
-    @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = attrGroupService.queryPage(params);
-
-        return R.ok().put("page", page);
-    }
-
 
     /**
      * 信息
@@ -64,7 +54,7 @@ public class AttrGroupController {
 
         Long catelogId = attrGroup.getCatelogId();
         Long[] catelogPath = categoryService.findCatelogPathByCatId(catelogId);
-        attrGroup.setCatelogIdPath(catelogPath);
+        attrGroup.setCatelogPath(catelogPath);
         return R.ok().put("attrGroup", attrGroup);
     }
 
