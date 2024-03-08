@@ -29,7 +29,7 @@ public interface AttrService extends IService<AttrEntity> {
 
     void updateAttr(AttrVo attrVo);
 
-    List<AttrEntity> queryAttrGropuRealationByGroupId(Long groupId);
+    List<AttrEntity> queryAttrsByGroupId(Long groupId);
 
     void removeAttrRelation(AttrGroupRelationVo[] relationVos);
 
