@@ -1,19 +1,15 @@
 package com.rachel.gulimall.product.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.rachel.gulimall.product.entity.SpuInfoEntity;
-import com.rachel.gulimall.product.service.SpuInfoService;
 import com.rachel.common.utils.PageUtils;
 import com.rachel.common.utils.R;
+import com.rachel.gulimall.product.entity.SpuInfoEntity;
+import com.rachel.gulimall.product.service.SpuInfoService;
+import com.rachel.gulimall.product.vo.spu.SpuSaveVo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -52,11 +48,11 @@ public class SpuInfoController {
     }
 
     /**
-     * 保存
+     * 保存spu所有信息
      */
-    @RequestMapping("/save")
-    public R save(@RequestBody SpuInfoEntity spuInfo){
-		spuInfoService.save(spuInfo);
+    @PostMapping("/save")
+    public R save(@RequestBody SpuSaveVo spuSaveVo){
+		spuInfoService.saveSpuInfo(spuSaveVo);
 
         return R.ok();
     }

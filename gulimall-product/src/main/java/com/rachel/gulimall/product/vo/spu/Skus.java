@@ -18,15 +18,15 @@ import java.util.List;
 public class Skus {
 
     private List<Attr> attr;
-    private Long countStatus;
+    private Integer countStatus;
     private List<String> descar;
     private BigDecimal discount;
-    private BigDecimal fullCount;
+    private Integer fullCount;
     private BigDecimal fullPrice;
     private List<Image> images;
     private List<MemberPrice> memberPrice;
     private BigDecimal price;
-    private BigDecimal priceStatus;
+    private Integer priceStatus;
     private BigDecimal reducePrice;
     private String skuName;
     private String skuSubtitle;
