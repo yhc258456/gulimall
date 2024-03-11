@@ -2,13 +2,16 @@ package com.rachel.gulimall.product.controller;
 
 import com.rachel.common.utils.PageUtils;
 import com.rachel.common.utils.R;
+import com.rachel.gulimall.product.entity.ProductAttrValueEntity;
 import com.rachel.gulimall.product.service.AttrService;
+import com.rachel.gulimall.product.service.ProductAttrValueService;
 import com.rachel.gulimall.product.vo.AttrRespVo;
 import com.rachel.gulimall.product.vo.AttrVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -23,6 +26,9 @@ public class AttrController {
     @Autowired
     private AttrService attrService;
 
+    @Autowired
+    private ProductAttrValueService productAttrValueService;
+
 
     /**
      * 列表
@@ -33,6 +39,18 @@ public class AttrController {
 
         return R.ok().put("page", page);
     }
+
+
+    /**
+     * 获取某个spu下的属性
+     */
+    @RequestMapping("/base/listforspu/{spuId}")
+    public R list(@PathVariable("spuId") String spuId) {
+        List<ProductAttrValueEntity> attrEntities = productAttrValueService.queryAttrBySpuId(spuId);
+
+        return R.ok().put("data", attrEntities);
+    }
+    // http://localhost:88/api/product/attr/update/6
 
     /**
      * 列表
@@ -62,6 +80,17 @@ public class AttrController {
     @RequestMapping("/save")
     public R save(@RequestBody AttrVo attr) {
         attrService.saveAttr(attr);
+        return R.ok();
+    }
+
+
+    /**
+     * 修改商品属性
+     */
+    @RequestMapping("/update/{spuId}")
+    public R updateSpuAttr(@PathVariable("spuId") Long spuId,
+                           @RequestBody List<ProductAttrValueEntity> attrValueEntityList) {
+        productAttrValueService.updateSpuAttr(spuId, attrValueEntityList);
         return R.ok();
     }
 
