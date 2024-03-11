@@ -67,6 +67,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
     /**
      * TODO 高级部分来完善（事物回滚、远程调用缓慢）
+     *
      * @param spuSaveVo
      */
     @Transactional
@@ -183,6 +184,35 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         }
 
 
+    }
+
+    @Override
+    public PageUtils queryPageByCondition(Map<String, Object> params) {
+        QueryWrapper<SpuInfoEntity> spuInfoEntityQueryWrapper = new QueryWrapper<>();
+        // 分类id
+        String catelogId = (String) params.get("catelogId");
+        if (StringUtils.isNotEmpty(catelogId) && !"0".equals(catelogId)) {
+            spuInfoEntityQueryWrapper.eq("catalog_id", catelogId);
+        }
+        // p品牌id
+        String brandId = (String) params.get("brandId");
+        if (StringUtils.isNotEmpty(brandId) && !"0".equals(brandId)) {
+            spuInfoEntityQueryWrapper.eq("brand_id", brandId);
+        }
+        // 发布状态
+        String status = (String) params.get("status");
+        if (StringUtils.isNotEmpty(status)) {
+            spuInfoEntityQueryWrapper.eq("publish_status", status);
+        }
+        // 关键字 id或者名字
+        String key = (String) params.get("key");
+        if (StringUtils.isNotEmpty(key)) {
+            spuInfoEntityQueryWrapper.and(w -> w.eq("id", key).or().like("spu_name", key));
+        }
+
+        IPage<SpuInfoEntity> page = this.page(new Query<SpuInfoEntity>().getPage(params), spuInfoEntityQueryWrapper);
+
+        return new PageUtils(page);
     }
 
 }
