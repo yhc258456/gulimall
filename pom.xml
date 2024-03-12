@@ -21,6 +21,7 @@
         <module>gulimall-member</module>
         <module>gulimall-gateway</module>
         <module>gulimall-third-service</module>
+        <module>gulimall-search</module>
     </modules>
 
 </project>
