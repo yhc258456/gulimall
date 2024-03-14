@@ -26,5 +26,5 @@ server:
   port: 11000
 logging:
   level:
-    com.rachel.gulimall: debug
+    com.rachel.gulimall: info
 

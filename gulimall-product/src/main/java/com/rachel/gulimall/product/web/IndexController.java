@@ -15,10 +15,8 @@ import java.util.Map;
 @Controller
 public class IndexController {
 
-
     @Autowired
     private CategoryService categoryService;
-
 
     @GetMapping({"/", "/index.html"})
     public String indexPage(Model model) {
