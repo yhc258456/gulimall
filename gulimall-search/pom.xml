@@ -40,12 +40,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.79</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.rachel.gulimall</groupId>
             <artifactId>gulimall_common</artifactId>
             <version>0.0.1-SNAPSHOT</version>

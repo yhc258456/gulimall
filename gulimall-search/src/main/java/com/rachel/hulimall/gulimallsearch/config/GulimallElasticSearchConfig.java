@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class GulimallElasticsearchConfig {
+public class GulimallElasticSearchConfig {
 
     public static final RequestOptions COMMON_OPTIONS;
     static {
