@@ -30,6 +30,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+        <!--  整合spring cache      -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.redisson/redisson -->
         <dependency>
@@ -39,22 +44,21 @@
         </dependency>
 
 
-
         <!--此处是为了调整letuce5.x 的bug 切换redis的客户端为jedis 但是spring2.6.0 使用的letuce为6.x 已解决 所以无需变动-->
-<!--        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.lettuce</groupId>
-                    <artifactId>lettuce-core</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-        </dependency>-->
+        <!--        <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-data-redis</artifactId>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>io.lettuce</groupId>
+                            <artifactId>lettuce-core</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>redis.clients</groupId>
+                    <artifactId>jedis</artifactId>
+                </dependency>-->
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
