@@ -1,11 +1,8 @@
 package com.rachel.common.constant;
 
 /**
- * @Description:
- * @Created: with IntelliJ IDEA.
- * @author: 夏沫止水
- * @createTime: 2020-06-06 16:58
- **/
+ * @author rachek
+ */
 public class EsConstant {
 
     //在es中的索引

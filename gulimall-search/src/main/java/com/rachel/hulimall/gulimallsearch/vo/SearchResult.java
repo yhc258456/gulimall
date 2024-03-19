@@ -3,6 +3,7 @@ package com.rachel.hulimall.gulimallsearch.vo;
 import com.rachel.common.es.SkuEsModel;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ public class SearchResult {
     /**
      * 查询到的所有商品信息
      */
-    private List<SkuEsModel> product;
+    private List<SkuEsModel> products;
 
 
     /**
@@ -54,7 +55,9 @@ public class SearchResult {
 
 
     /* 面包屑导航数据 */
-    private List<NavVo> navs;
+    private List<NavVo> navs = new ArrayList<>();
+    /** 已被选择的属性id*/
+    private List<Long> attrIds = new ArrayList<>();
 
     @Data
     public static class NavVo {

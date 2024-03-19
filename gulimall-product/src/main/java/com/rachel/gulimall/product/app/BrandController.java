@@ -1,23 +1,19 @@
 package com.rachel.gulimall.product.app;
 
-import java.util.Arrays;
-import java.util.Map;
-
 import com.rachel.common.group.AddGroup;
 import com.rachel.common.group.UpdateGroup;
 import com.rachel.common.group.UpdateStatusGroup;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.rachel.gulimall.product.entity.BrandEntity;
-import com.rachel.gulimall.product.service.BrandService;
 import com.rachel.common.utils.PageUtils;
 import com.rachel.common.utils.R;
+import com.rachel.gulimall.product.entity.BrandEntity;
+import com.rachel.gulimall.product.service.BrandService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -43,6 +39,12 @@ public class BrandController {
         return R.ok().put("page", page);
     }
 
+
+    @GetMapping("/brandInfos")
+    public R brandInfos(@RequestParam List<Long> brandIds) {
+        List<BrandEntity> brands = brandService.getBrandsByIds(brandIds);
+        return R.ok().put("brands", brands);
+    }
 
     /**
      * 信息

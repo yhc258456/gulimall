@@ -2,6 +2,7 @@ package com.rachel.hulimall.gulimallsearch.controller;
 
 import com.rachel.hulimall.gulimallsearch.service.MallSearchService;
 import com.rachel.hulimall.gulimallsearch.vo.SearchParam;
+import com.rachel.hulimall.gulimallsearch.vo.SearchResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +21,7 @@ public class SearchController {
     @GetMapping("/list.html")
     public String list(SearchParam searchParam, Model model, HttpServletRequest request) {
         searchParam.set_queryString(request.getQueryString());
-        Object result = mallSearchService.search(searchParam);
+        SearchResult result = mallSearchService.search(searchParam);
         model.addAttribute("result", result);
         return "list";
     }
