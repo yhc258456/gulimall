@@ -56,6 +56,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberDao, MemberEntity> impl
         String password = memberRegisterVo.getPassword();
         MemberEntity memberEntity = new MemberEntity();
         memberEntity.setCreateTime(new Date());
+        memberEntity.setNickname(userName);
 
         //设置默认等级
         MemberLevelEntity levelEntity = memberLevelDao.getDefaultLevel();

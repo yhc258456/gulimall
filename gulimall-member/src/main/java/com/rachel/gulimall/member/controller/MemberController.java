@@ -44,10 +44,12 @@ public class MemberController {
     @PostMapping("/login")
     public R loginMember(@RequestBody MemberLoginVo memberLoginVo) {
         MemberEntity memberEntity = memberService.loginMember(memberLoginVo);
-        if (memberEntity == null) {
-            return R.error(BizCodeEnum.LOGINACCT_PASSWORD_EXCEPTION.getCode(), BizCodeEnum.LOGINACCT_PASSWORD_EXCEPTION.getMsg());
+        if (memberEntity != null) {
+            return R.ok().setData(memberEntity);
         }
-        return R.ok();
+
+        return R.error(BizCodeEnum.LOGINACCT_PASSWORD_EXCEPTION.getCode(), BizCodeEnum.LOGINACCT_PASSWORD_EXCEPTION.getMsg());
+
     }
 
     @PostMapping(value = "/oauth2/login")
@@ -58,7 +60,7 @@ public class MemberController {
         if (memberEntity != null) {
             return R.ok().setData(memberEntity);
         } else {
-            return R.error(BizCodeEnum.LOGINACCT_PASSWORD_EXCEPTION.getCode(),BizCodeEnum.LOGINACCT_PASSWORD_EXCEPTION.getMessage());
+            return R.error(BizCodeEnum.LOGINACCT_PASSWORD_EXCEPTION.getCode(), BizCodeEnum.LOGINACCT_PASSWORD_EXCEPTION.getMsg());
         }
     }
 
