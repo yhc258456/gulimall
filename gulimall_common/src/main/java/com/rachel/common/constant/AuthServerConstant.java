@@ -12,5 +12,9 @@ public class AuthServerConstant {
 
     public static final String LOGIN_USER = "loginUser";
 
+    public static final String GULI_MALL_DOMAIN = "gulimall.com";
+
+    public static final String GULI_MALL_SESSION_NAME = "GULISESSION";
+
 
 }

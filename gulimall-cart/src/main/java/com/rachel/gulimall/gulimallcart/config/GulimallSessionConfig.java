@@ -1,6 +1,5 @@
-package com.rachel.hulimall.gulimallauthserver.config;
+package com.rachel.gulimall.gulimallcart.config;
 
-import com.rachel.common.constant.AuthServerConstant;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
@@ -11,8 +10,7 @@ import org.springframework.session.web.http.DefaultCookieSerializer;
 /**
  * @Description: springSession配置类
  * @Created: with IntelliJ IDEA.
- * @author: 夏沫止水
- * @createTime: 2020-06-29 13:36
+ * @author: rachel
  **/
 
 @Configuration
@@ -24,8 +22,8 @@ public class GulimallSessionConfig {
         DefaultCookieSerializer cookieSerializer = new DefaultCookieSerializer();
 
         //放大作用域
-        cookieSerializer.setDomainName(AuthServerConstant.GULI_MALL_DOMAIN);
-        cookieSerializer.setCookieName(AuthServerConstant.GULI_MALL_SESSION_NAME);
+        cookieSerializer.setDomainName("gulimall.com");
+        cookieSerializer.setCookieName("GULISESSION");
 
         return cookieSerializer;
     }
